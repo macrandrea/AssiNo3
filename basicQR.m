@@ -4,7 +4,7 @@ Qu=cell(n,1);
 Erre=cell(n,1);
 E=cell(n,1);
 E{1,1}=A;
-    for i=1:n*1000
+    for i=1:n
         [Qu{i,1},Erre{i,1}]=qr(E{i,1});
         E{i+1,1}=Erre{i,1}*Qu{i,1};
         %numericCells = E{i+1,1};
@@ -14,7 +14,7 @@ E{1,1}=A;
                     eigen=diag(e);
                 end
             end
-        end
+    end
         
     
         eigen=diag(E{i+1,1});
