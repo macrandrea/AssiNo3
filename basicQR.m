@@ -1,4 +1,4 @@
-function [eigen]=basicQR(A)
+function [eigen,emat]=basicQR(A)
 n=length(A);
 tol=10^(-14);
 e=A;
@@ -8,7 +8,8 @@ e=A;
                 [Q,R]=qr(e);
                 e=R*Q;
             end
-            eigen=diag(e);
+            emat=e;
+            eigen=diag(emat);
         end
     end   
 end  
