@@ -1,21 +1,14 @@
-function [eigen,E]=basicQR(A)
+function [eigen]=basicQR(A)
 n=length(A);
-Qu=cell(n,1);
-Erre=cell(n,1);
-E=cell(n,1);
-E{1,1}=A;
+tol=10^(-14);
+e=A;
     for i=1:n
-        [Qu{i,1},Erre{i,1}]=qr(E{i,1});
-        E{i+1,1}=Erre{i,1}*Qu{i,1};
-        %numericCells = E{i+1,1};
-        e=cell2mat(E(i+1,1));
-            for j=i+1:n
-                if e(i,j)<10^(-14)
-                    eigen=diag(e);
-                end
+        for j=i+1:n
+            while max(abs(e(i,j)))>tol
+                [Q,R]=qr(e);
+                e=R*Q;
             end
-    end
-        
-    
-        eigen=diag(E{i+1,1});
-end
+            eigen=diag(e);
+        end
+    end   
+end  
