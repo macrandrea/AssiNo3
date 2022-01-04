@@ -1,7 +1,5 @@
 function [ii,eigen]=basicQRconv(A,tol)
 n=length(A);
-%tol=10^(-14);
-%ii=zeros(n,1);
 e=A;
 ii=0;
 ee=sort(eig(A),'descend');
