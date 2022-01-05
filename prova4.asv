@@ -4,26 +4,14 @@ A=[4 3 2 1
     3 4 3 2
     2 3 4 3
     1 2 3 4];
-%n=14;
-%N=zeros(n,1);
-%for j=1:n
-%%[ii,eigen]=basicQRshift(A,j);
-%%N(j)=ii;
-%end
-%%x=linspace(1,ii,14);
-%%plot(N,'h--')
-[ii,e]=basicQRshift(A,8);
-% j=3;
-% [V,l]=eig(e);
-%             mu=V(:,j)'*e*V(:,j);
-%             shift=mu*eye(j);
-%             [Q,R]=qr(e(1:j,1:j)-shift);
-%             e=R*Q+shift;
-n=14;
+n=8;
 N=zeros(n,1);
+tic
 for j=1:n
-[i,e]=basicQRconv(A,j);
-N(j)=i;
+[ii,e]=basicQRshift(A,j);
+N(j)=ii;
 end
-x=linspace(1,i,14);
+toc
+x=linspace(1,ii,14);
 plot(N,'h--')
+x=sort(e,'descend')
