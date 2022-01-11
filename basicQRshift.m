@@ -7,7 +7,7 @@ m=norm(ei-x);
 ii=0;
 	while m>10^(-tol)
 		for j=1:n
-			mu=V(:,j)'*e*V(:,j);
+			mu=(V(:,j)'*e*V(:,j))/(V(:,j)'*V(:,j));
 			shift=mu*eye(n);
 			[Q,R]=qr(e-shift);
 			e=R*Q+shift;

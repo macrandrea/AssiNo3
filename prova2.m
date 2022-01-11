@@ -14,6 +14,7 @@ end
 toc
 x=linspace(1,i,n);
 plot(N,'h--')
+grid on
 %1
 %2
 %3
